@@ -183,7 +183,7 @@ This Web application is relying on the following frontend technology/libraries:
 This spring boot has been deployed to Heroku by using a pre-configuration scripts `app.json` and `Procfile`.
 
 ## User Guide
-The Web application can be accessed over the browser by using the following address: `https://***.herokuapp.com/`. And the Swagger-UI can be access using the specific page: `https://***.herokuapp.com/swagger-ui.html`.
+The Web application can be accessed over the browser by using the following address: `https://***.herokuapp.com/`. And the Swagger-UI can be access using the specific page: `https://***.herokuapp.com/swagger-ui/`.
 
 ## Project Management
 
