@@ -43,6 +43,7 @@ A-CRM (Agency Customer-Relationship-Management) is the smallest possible and lig
 
 ### Use Case
 ![](images/use-case.png)
+
 - UC-1 [Login on A-CRM]: Agents can log-in by entering an email address and password. As an extension, new agents my register first.
 - UC-2 [Register on A-CRM]: Agents can register to get an account (profile) to access the A-CRM system.
 - UC-3 [Edit a customer]: Agents can create, update and delete customers.
