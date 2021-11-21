@@ -29,8 +29,6 @@ public class WebSecurityConfigTest extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private AgentService agentService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -47,10 +45,5 @@ public class WebSecurityConfigTest extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-        Agent agentUser = new Agent();
-        agentUser.setEmail("user@user.com");
-        agentUser.setPassword("password");
-        agentUser.setName("user");
-        agentService.saveAgent(agentUser);
     }
 }
