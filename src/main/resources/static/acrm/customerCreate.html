@@ -70,15 +70,25 @@
     <script>
         $(document).ready(function () {
             $("#form").submit(function (event) {
-                postCustomer(getCustomerJSON(null, $('input[name=name]').val(), $('input[name=email]').val(), $('input[name=mobile]').val()), function (result) {
-                    window.location.replace("/customer");
-                }, function (error) {
-                    $("#error-modal").modal('show');
-                    $("#error-text").text(error);
-                });
+                postCustomer(
+                    getCustomerJSON(
+                        null,
+                        $("input[name=name]").val(),
+                        $("input[name=email]").val(),
+                        $("input[name=mobile]").val()
+                    ),
+                    function (result) {
+                        window.location.replace("/customer");
+                    },
+                    function (error) {
+                        $("#error-modal").modal("show");
+                        $("#error-text").text(error);
+                    }
+                );
                 event.preventDefault();
             });
         });
+
     </script>
 </body>
 

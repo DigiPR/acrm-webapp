@@ -72,23 +72,33 @@
     <script src="../assets/js/webapp.js"></script>
     <script>
         $(document).ready(function () {
-            customerID = getURLParameter('id');
+            customerID = getURLParameter("id");
             if (customerID !== null) {
                 getCustomer(customerID, function (result) {
-                    $('input[name=id]').val(result["id"]);
-                    $('input[name=name]').val(result["name"]);
-                    $('input[name=email]').val(result["email"]);
-                    $('input[name=mobile]').val(result["mobile"]);
+                    $("input[name=id]").val(result["id"]);
+                    $("input[name=name]").val(result["name"]);
+                    $("input[name=email]").val(result["email"]);
+                    $("input[name=mobile]").val(result["mobile"]);
                 });
             }
 
             $("#form").submit(function (event) {
-                putCustomer(customerID, getCustomerJSON($('input[name=id]').val(), $('input[name=name]').val(), $('input[name=email]').val(), $('input[name=mobile]').val()), function (result) {
-                    window.location.replace("/customer");
-                }, function (error) {
-                    $("#error-modal").modal('show');
-                    $("#error-text").text(error);
-                });
+                putCustomer(
+                    customerID,
+                    getCustomerJSON(
+                        $("input[name=id]").val(),
+                        $("input[name=name]").val(),
+                        $("input[name=email]").val(),
+                        $("input[name=mobile]").val()
+                    ),
+                    function (result) {
+                        window.location.replace("/customer");
+                    },
+                    function (error) {
+                        $("#error-modal").modal("show");
+                        $("#error-text").text(error);
+                    }
+                );
                 event.preventDefault();
             });
         });
