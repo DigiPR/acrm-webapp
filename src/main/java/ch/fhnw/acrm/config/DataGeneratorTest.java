@@ -16,7 +16,11 @@ public class DataGeneratorTest {
     private AgentService agentService;
 
     @PostConstruct
-    private void demoData() throws Exception {
+    private void init() throws Exception {
+        demoUser();
+    }
+
+    private void demoUser() throws Exception {
         Agent agentUser = new Agent();
         agentUser.setEmail("user@user.com");
         agentUser.setPassword("password");

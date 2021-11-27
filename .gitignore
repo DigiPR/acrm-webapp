@@ -30,3 +30,4 @@ export/
 *.vpp.vbak
 /data/
 *.vpp.lck
+/.jpb/
