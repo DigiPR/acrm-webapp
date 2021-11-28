@@ -68,6 +68,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         String cookieToken = this.tokenService.issueToken(this.user.getEmail(), TokenSecurityProperties.COOKIE_TYPE, date);
         cookie = new Cookie(TokenSecurityProperties.COOKIE_NAME, cookieToken);
         cookie.setHttpOnly(true);
+        cookie.setSecure(request.isSecure());
         cookie.setPath("/");
         if(Boolean.parseBoolean(this.user.getRemember())) {
             cookie.setMaxAge(Math.toIntExact(TokenSecurityProperties.REMEMBER_EXPIRATION_TIME /1000));
