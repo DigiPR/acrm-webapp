@@ -68,12 +68,12 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         String cookieToken = this.tokenService.issueToken(this.user.getEmail(), TokenSecurityProperties.COOKIE_TYPE, date);
         cookie = new Cookie(TokenSecurityProperties.COOKIE_NAME, cookieToken);
         cookie.setHttpOnly(true);
-        cookie.setSecure(request.isSecure());
         cookie.setPath("/");
         if(Boolean.parseBoolean(this.user.getRemember())) {
             cookie.setMaxAge(Math.toIntExact(TokenSecurityProperties.REMEMBER_EXPIRATION_TIME /1000));
         }
         response.addCookie(cookie);
+        response.setHeader("Set-Cookie", response.getHeader("Set-Cookie").concat("; Secure="+request.isSecure()+"; SameSite=Lax"));
 
         date = new Date(System.currentTimeMillis() + TokenSecurityProperties.BEARER_EXPIRATION_TIME);
         String bearerToken = this.tokenService.issueToken(this.user.getEmail(), TokenSecurityProperties.BEARER_TYPE, date);
